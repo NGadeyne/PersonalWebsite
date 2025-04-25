@@ -1,5 +1,5 @@
 # Étape 1 : Choisir l'image de base
-FROM node:16-slim AS build
+FROM node:22-slim AS build
 
 # Définir le répertoire de travail
 WORKDIR /app
@@ -17,7 +17,7 @@ COPY . .
 RUN npm run build
 
 # Étape 3 : Préparer l'environnement de production
-FROM node:16-slim
+FROM node:22-slim
 
 # Définir le répertoire de travail pour l'exécution
 WORKDIR /app
