@@ -1,37 +1,36 @@
-# Étape 1 : Image de base avec Node et installation des dépendances
-FROM node:23-slim AS build
+# Étape 1 : Choisir l'image de base
+FROM node:16-slim AS build
 
-# Crée un répertoire pour l’app
+# Définir le répertoire de travail
 WORKDIR /app
 
-# Copie les fichiers de dépendances
-COPY package.json package-lock.json ./
+# Copier package.json et package-lock.json (si présents) pour les dépendances
+COPY package*.json ./
 
-# Installe les dépendances
-RUN npm ci
+# Installer les dépendances
+RUN npm install
 
-# Installe Tailwind et PostCSS
-RUN npm install tailwindcss postcss autoprefixer
-
-# Copie le reste de l'app
+# Copier tout le reste des fichiers de l'application
 COPY . .
 
-# Initialisation de Tailwind si nécessaire
-RUN npx tailwindcss init
-
-# Build du projet Astro
+# Étape 2 : Construire l'application Astro
 RUN npm run build
 
-# Étape 2 : Image minimale pour le déploiement (production)
-FROM node:23-slim AS runner
+# Étape 3 : Préparer l'environnement de production
+FROM node:16-slim
 
+# Définir le répertoire de travail pour l'exécution
 WORKDIR /app
 
-# Copie seulement ce qui est nécessaire au runtime
-COPY --from=build /app/node_modules ./node_modules
-COPY --from=build /app/dist ./dist
-COPY --from=build /app/package.json ./
+# Copier les fichiers buildés depuis l'étape de build
+COPY --from=build /app/dist /app/dist
 
-# Astro en mode preview sur le port 8080
+# Installer uniquement les dépendances nécessaires pour la production
+COPY package*.json ./
+RUN npm install --production
+
+# Exposer le port que l'application va utiliser
 EXPOSE 8080
-CMD ["npm", "run", "start", "--port", "8080"]
+
+# Commande pour démarrer l'application en mode "preview" (production)
+CMD ["npm", "run", "start"]
