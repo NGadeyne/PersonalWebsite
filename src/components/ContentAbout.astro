@@ -2,67 +2,75 @@
 import { Code } from 'astro:components';
 
 const code = `interface Developer {
-    name: string;
+    name: Nicolas GADEYNE;
     skills: string[];
     interests: string[];
 };
 
 interface TechStack {
+    productManager: string[];
     devOps: string[];
     backend: string[];
    frontend: string[];
 };
 
-type ContactType = 'github' | 'twitter' | 'linkedIn' | 'xing' | 'email';
+type ContactType = 'github' | 'malt' | 'linkedIn' | 'email';
 
 const techStack: TechStack = {
+    productManager: [
+        'Product Vision',
+        'Roadmap',
+        'Prioritize'
+        'Communication'
+        'Management',
+        'Structure',
+        'Scrum',
+        'SAFe',
+        'Lean Six Sigma'
+    ],
     devOps: [
         'GitLab',
         'GitHub',
-        'Cloudflare',
-        'Docker'
+        'Docker',
+        'Kubernetes',
     ],
     frontend: [
-        'Angular',
         'JavaScript',
         'TypeScript',
-        'TailwindCSS',
-        'PrimeNG',
+        'Vue.js',
         'Astro',
-        'Ionic',
-        'Stencil',
-        'Capacitor',
-        'SCSS',
+        'CSS',
+        'TailwindCSS',
+        'HTML',
         'Markdown',
-        'WordPress'
+        'Figma'
     ],
     backend: [
-        'Supabase',
         'Node.js',
-        'Bun',
-        'Deno',
+        'Python',
+        'Go',
         'PostgreSQL',
-        'MySQL',
+        'Redis',
+        'Mongo',
         'S3 Storage',
-        'Resend'
     ]
 };
 
 // Developer profile
 const me: Developer = {
-    name: 'Dejan Vi.',
+    name: 'Nicolas GADEYNE',
     skills: [
+        ...techStack.productManager,
         ...techStack.devOps,
         ...techStack.backend,
         ...techStack.frontend
     ],
     interests: [
-        'Open Source',
-        'Security',
-        'Privacy',
-        'Performance',
-        'Self-Hosting',
-        'Networking'
+        'Tennis — Competitive mindset, discipline, and resilience',
+        'Travel — Adaptability, cultural curiosity, love for exploration',
+        'Video games (RPG & strategy) — Analytical thinking, decision-making, challenge-driven',
+        'Fantasy novels (The Witcher, Realm of the Elderlings) — Imagination, storytelling, attention to detail',
+        'Passionate about music (rock) — Creative sensitivity, artistic exploration',
     ]
 };
 
@@ -70,15 +78,13 @@ const me: Developer = {
 const contact = (type: ContactType): string => {
     switch (type) {
         case 'github':
-            return 'https://github.com/devidevio';
-        case 'twitter':
-            return 'https://x.com/devidev_io';
+            return 'https://github.com/ngadeyne';
+        case 'malt':
+            return 'https://www.malt.fr/profile/nicolasgadeyne';
         case 'linkedIn':
-            return 'https://www.linkedin.com/in/dejan-vi';
-        case 'xing':
-            return 'https://www.xing.com/profile/Dejan_Vintonjiv';
+            return 'https://www.linkedin.com/in/nicolas-gadeyne';
         case 'email':
-            return 'hi@devidev.io';
+            return 'contact@nicolas-gadeyne.fr';
         default:
             return 'Send fax.';
     }
