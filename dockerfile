@@ -34,4 +34,4 @@ COPY --from=build /app/package.json ./
 
 # Astro en mode preview sur le port 8080
 EXPOSE 8080
-CMD ["npx", "astro", "preview", "--port", "8080"]
+CMD ["npm", "run", "start", "--port", "8080"]
