@@ -1,125 +1,19 @@
----
-import { Code } from 'astro:components';
-
-const code = `interface Developer {
-    name: Nicolas GADEYNE;
-    skills: string[];
-    interests: string[];
-};
-
-interface TechStack {
-    productManager: string[];
-    devOps: string[];
-    backend: string[];
-   frontend: string[];
-};
-
-type ContactType = 'github' | 'malt' | 'linkedIn' | 'email';
-
-const techStack: TechStack = {
-    productManager: [
-        'Product Vision',
-        'Roadmap',
-        'Prioritize'
-        'Communication'
-        'Management',
-        'Structure',
-        'Scrum',
-        'SAFe',
-        'Lean Six Sigma'
-    ],
-    devOps: [
-        'GitLab',
-        'GitHub',
-        'Docker',
-        'Kubernetes',
-    ],
-    frontend: [
-        'JavaScript',
-        'TypeScript',
-        'Vue.js',
-        'Astro',
-        'CSS',
-        'TailwindCSS',
-        'HTML',
-        'Markdown',
-        'Figma'
-    ],
-    backend: [
-        'Node.js',
-        'Python',
-        'Go',
-        'PostgreSQL',
-        'Redis',
-        'Mongo',
-        'S3 Storage',
-    ]
-};
-
-// Developer profile
-const me: Developer = {
-    name: 'Nicolas GADEYNE',
-    skills: [
-        ...techStack.productManager,
-        ...techStack.devOps,
-        ...techStack.backend,
-        ...techStack.frontend
-    ],
-    interests: [
-        'Tennis — Competitive mindset, discipline, and resilience',
-        'Travel — Adaptability, cultural curiosity, love for exploration',
-        'Video games (RPG & strategy) — Analytical thinking, decision-making, challenge-driven',
-        'Fantasy novels (The Witcher, Realm of the Elderlings) — Imagination, storytelling, attention to detail',
-        'Passionate about music (rock) — Creative sensitivity, artistic exploration',
-    ]
-};
-
-// Contact function
-const contact = (type: ContactType): string => {
-    switch (type) {
-        case 'github':
-            return 'https://github.com/ngadeyne';
-        case 'malt':
-            return 'https://www.malt.fr/profile/nicolasgadeyne';
-        case 'linkedIn':
-            return 'https://www.linkedin.com/in/nicolas-gadeyne';
-        case 'email':
-            return 'contact@nicolas-gadeyne.fr';
-        default:
-            return 'Send fax.';
-    }
-};
-
-`;
----
-
-<Code
-    code={code}
-    lang="js"
-    wrap={true}
-/>
-
-<style is:global>
-
-    /* Custom styling for code block line numbers */
-    pre.astro-code {
-        @apply bg-transparent !important;
-    }
-
-    pre.astro-code code {
-        @apply block;
-        counter-reset: step;
-        counter-increment: step 0;
-    }
-
-    pre.astro-code code .line {
-        @apply relative;
-    }
-
-    pre.astro-code code .line::before {
-        content: counter(step);
-        counter-increment: step;
-        @apply text-gray-600 pr-2;
-    }
-
-</style>
+<div>
+        <h3 class="text-xl font-semibold text-white mb-4">💜 Pourquoi moi (et pas un autre) ?</h3>
+        <p class="text-gray-400 mb-2">Je suis Product Manager freelance, avec un passé de dev.</p>
+        <p class="text-gray-400 mb-2">Je suis à l’aise dans les environnements complexes : Kubernetes, DBaaS, plateformes techniques.</p>
+        <p class="text-gray-400 mb-4">Et j’interviens quand ça coince vraiment — pas quand tout roule.</p>
+        <p class="text-white mb-2">🎯 Mon job ?</p>
+        <p class="text-gray-400 mb-2">Te faire respirer.</p>
+        <p class="text-gray-400 mb-2">Structurer ce qui compte.</p>
+        <p class="text-gray-400 mb-4">Et relancer le delivery sans sacrifier ta vision produit.</p>
+        <p class="text-white mb-2">Ce que mes clients apprécient :</p>
+        <p class="text-gray-400 mb-2">- Je suis un pair senior : autonome, opérationnel, pas à manager</p>
+        <p class="text-gray-400 mb-2">- Je parle à la fois technique et impact produit</p>
+        <p class="text-gray-400 mb-2">- Je sais embarquer une squad rapidement, sans faire d’effet d’annonce</p>
+        <p class="text-gray-400 mb-2">- Je produis des livrables clairs, utilisables, actionnables</p>
+        <p class="text-gray-400 mb-4">- Je ne viens pas pour coacher à la place d’agir — je fais, et je transmets</p>
+        <p class="text-gray-400 mb-2">Tu n’as pas besoin d’un facilitateur flou.</p>
+        <p class="text-gray-400 mb-2">Tu as besoin d’un appui solide, qui comprend ta réalité et agit vite.</p>
+      
+</div>

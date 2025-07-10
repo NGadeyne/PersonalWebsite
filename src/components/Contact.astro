@@ -1,5 +1,6 @@
 ---
 import Socials from './Socials.astro';
+import ContentLink from '../components/ContentLink.astro';
 ---
 
 <div>
@@ -7,17 +8,23 @@ import Socials from './Socials.astro';
     <!-- Start: Terminal -->
     <div class="mt-6 bg-black rounded-lg p-4 border border-gray-600 text-xs">
 
-        <div class="flex items-center mb-2">
-            <span class="text-primary mr-2">$</span>
-            <span class="text-gray-100">npx connect</span>
+        <div class="flex items-center mb-4">
+            <span class="text-primary mr-2">✨</span>
+            <span class="text-gray-100">Et maintenant ?</span>
         </div>
 
         <div class="mt-2 text-gray-400">
-            Initializing...
-            <br />
-            Ready to connect.
-            <br />
-            Waiting for contact request...
+            <p>Tu ne peux pas tout faire.</p>
+            <p>Mais tu peux t’entourer des bonnes personnes pour ne plus t’épuiser à tout porter.</p>
+            <p>Ton produit mérite mieux que des décisions au doigt mouillé.</p>
+            <p>Et toi, mieux qu’un rôle de pompier à plein temps.</p>
+            <br/>
+            <span class="text-primary">
+            <ContentLink
+                contentId="tab5"
+                contentName="On échange ? Je te montre comment débloquer la situation"
+            />
+            </span>
         </div>
 
     </div>

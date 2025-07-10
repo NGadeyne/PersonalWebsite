@@ -5,9 +5,12 @@ import Profile from '../components/Profile.astro';
 import Contact from '../components/Contact.astro';
 
 import ContentLink from '../components/ContentLink.astro';
-import ContentCode from '../components/ContentAbout.astro';
+import ContentAbout from '../components/ContentAbout.astro';
 import ContentProjects from '../components/ContentProjects.astro';
 import ContentOffer from '../components/ContentOffer.astro';
+import ContentFAQ from '../components/ContentFAQ.astro';
+import ContentPain from '../components/ContentPain.astro';
+import ContentVision from '../components/ContentVision.astro';
 ---
 
 <Layout>
@@ -56,22 +59,58 @@ import ContentOffer from '../components/ContentOffer.astro';
                     class="tab-radio"
                     />
 
+                    <input
+                    type="radio"
+                    id="tab4"
+                    name="tabs"
+                    class="tab-radio"
+                    />
+
+                              <input
+                    type="radio"
+                    id="tab5"
+                    name="tabs"
+                    class="tab-radio"
+                    />
+
+                              <input
+                    type="radio"
+                    id="tab6"
+                    name="tabs"
+                    class="tab-radio"
+                    />
+
                     <!-- Start: Tab bar -->
                     <div class="flex bg-black border-b border-gray-600 sticky top-0 z-10">
 
                         <ContentLink
                             contentId="tab1"
-                            contentName="about.ts"
+                            contentName="Pourquoi ?"
                         />
 
                         <ContentLink
                             contentId="tab2"
-                            contentName="projects.md"
+                            contentName="Toi ?"
                         />
 
                         <ContentLink
                             contentId="tab3"
-                            contentName="offer.md"
+                            contentName="Moi ?"
+                        />
+
+                        <ContentLink
+                            contentId="tab4"
+                            contentName="Mes clients ?"
+                        />
+
+                        <ContentLink
+                            contentId="tab5"
+                            contentName="On en discute ?"
+                        />
+
+                        <ContentLink
+                            contentId="tab6"
+                            contentName="Des questions ?"
                         />
 
                     </div>
@@ -82,19 +121,34 @@ import ContentOffer from '../components/ContentOffer.astro';
 
                         <!-- Start: About content -->
                         <div id="content1" class="tab-content">
-                            <ContentCode />
+                            <ContentPain />
                         </div>
                         <!-- End: About content -->
 
                         <!-- Start: Projects content -->
                         <div id="content2" class="tab-content">
-                            <ContentProjects />
+                            <ContentVision />
                         </div>
                         <!-- End: Projects content -->
 
                         <!-- Start: Projects content -->
                         <div id="content3" class="tab-content">
+                            <ContentAbout />
+                        </div>
+                        <!-- End: Projects content -->
+                           <!-- Start: Projects content -->
+                        <div id="content4" class="tab-content">
+                            <ContentProjects />
+                        </div>
+                        <!-- End: Projects content -->
+                           <!-- Start: Projects content -->
+                        <div id="content5" class="tab-content">
                             <ContentOffer />
+                        </div>
+                        <!-- End: Projects content -->
+                           <!-- Start: Projects content -->
+                        <div id="content6" class="tab-content">
+                            <ContentFAQ/>
                         </div>
                         <!-- End: Projects content -->
 
@@ -157,6 +211,34 @@ import ContentOffer from '../components/ContentOffer.astro';
     }
 
     #tab3:checked ~ .flex .tab-link:nth-child(3) {
+        @apply border-b-2 border-b-primary;
+    }
+
+      /* When tab2 is checked, show content2 and highlight its tab */
+    #tab4:checked ~ * #content4 {
+        @apply block opacity-100;
+    }
+
+    #tab4:checked ~ .flex .tab-link:nth-child(4) {
+        @apply border-b-2 border-b-primary;
+    }
+
+      /* When tab2 is checked, show content2 and highlight its tab */
+    #tab5:checked ~ * #content5 {
+        @apply block opacity-100;
+    }
+
+    #tab5:checked ~ .flex .tab-link:nth-child(5) {
+        @apply border-b-2 border-b-primary;
+    }
+
+
+      /* When tab2 is checked, show content2 and highlight its tab */
+    #tab6:checked ~ * #content6 {
+        @apply block opacity-100;
+    }
+
+    #tab6:checked ~ .flex .tab-link:nth-child(6) {
         @apply border-b-2 border-b-primary;
     }
 
